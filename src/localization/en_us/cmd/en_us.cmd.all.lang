@@ -1,0 +1,77 @@
+## region char
+[PLUGIN_ANILIST_ALIASES_TITLE]
+Aliases
+## endregion char
+
+## anime
+[PLUGIN_ANILIST_EPISODES_TITLE]
+Episodes
+
+[PLUGIN_ANILIST_AIRING_STATUS_TITLE]
+Airing status
+
+## manga
+[PLUGIN_ANILIST_CHAPTERS_VOLUMES]
+Chapter | Volumes
+
+[PLUGIN_ANILIST_PUBLISHING_STATUS]
+Publishing status
+
+## region anime and manga
+[PLUGIN_ANILIST_GENRES_TITLE]
+Genres
+
+[PLUGIN_ANILIST_RATING_TYPE_TITLE]
+Rating | Type
+
+[PLUGIN_ANILIST_START_TITLE]
+Start
+
+[PLUGIN_ANILIST_PERIOD_TITLE]
+Period
+
+[PLUGIN_ANILIST_DESCRIPTION]
+Description
+
+## and publishing
+[PLUGIN_ANILIST_STATUS_VALUE]
+{{!
+	switch (args.status)
+	{
+		case 'finished airing': return 'finished airing';
+		case 'currently airing': return 'currently airing';
+		case 'not yet aired': return 'not yet aired';
+		case 'cancelled': return 'cancelled';
+		case 'finished publishing': return 'finished publishing';
+		case 'publishing': return 'publishing';
+		case 'not yet published': return 'not yet published';
+		default: return args.status;
+	}
+!}}
+
+[PLUGIN_ANILIST_ORIGIN]
+Origin
+
+
+## region prompt
+[PLUGIN_ANILIST_PICK_PROMPT_TITLE]
+There has been found more than one {{ type }}
+
+[PLUGIN_ANILIST_PICK_PROMPT_FIELD_TITLE]
+Notice
+
+[PLUGIN_ANILIST_PICK_PROMPT_FIELD_VALUE]
+For which {{ type }} would you like to see additional information?\n
+To cancel this prompt respond with `cancel`, this prompt times out after `30` seconds.
+## endregion prompt
+
+## region generic
+[PLUGIN_ANILIST_NOTHING_FOUND]
+Could not find anything for that query.
+
+[PLUGIN_ANILIST_NOT_SPECIFIED]
+Not specified
+
+[PLUGIN_ANILIST_CANCELLED]
+The request was canceled, timeout out, or the specified resource does not exists.
+## endregion generic

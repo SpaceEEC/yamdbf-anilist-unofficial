@@ -1,0 +1,78 @@
+## region char
+[PLUGIN_ANILIST_ALIASES_TITLE]
+Aliasse
+## endregion char
+
+## region anime
+[PLUGIN_ANILIST_EPISODES_TITLE]
+Episoden
+
+[PLUGIN_ANILIST_AIRING_STATUS_TITLE]
+Ausstrahlungsstatus
+## endregion anime
+
+## region manga
+[PLUGIN_ANILIST_CHAPTERS_VOLUMES]
+Kapitel | Ausgaben
+
+[PLUGIN_ANILIST_PUBLISHING_STATUS]
+Veröffentlichungsstatus
+## endregion manga
+
+## region anime and manga
+[PLUGIN_ANILIST_GENRES_TITLE]
+Genres
+
+[PLUGIN_ANILIST_RATING_TYPE_TITLE]
+Bewertung | Art
+
+[PLUGIN_ANILIST_START_TITLE]
+Anfangsdatum
+
+[PLUGIN_ANILIST_PERIOD_TITLE]
+Zeitraum
+
+[PLUGIN_ANILIST_DESCRIPTION]
+Beschreibung (Englisch)
+
+## and publishing
+[PLUGIN_ANILIST_STATUS_VALUE]
+{{!
+	switch (args.status)
+	{
+		case 'finished airing': return 'Abgeschlossen';
+		case 'currently airing': return 'Am Ausstrahlen';
+		case 'not yet aired': return 'Noch nicht veröffentlicht';
+		case 'cancelled': return 'Abgebrochen';
+		case 'finished publishing': return 'Abgeschlossen';
+		case 'publishing': return 'Am Veröffentlichen';
+		case 'not yet published': return 'Noch nicht veröffentlicht';
+		default: return args.status;
+	}
+!}}
+
+[PLUGIN_ANILIST_ORIGIN]
+Herkunft
+
+## region prompt
+[PLUGIN_ANILIST_PICK_PROMPT_TITLE]
+Es wurde mehr als ein {{ type }} gefunden
+
+[PLUGIN_ANILIST_PICK_PROMPT_FIELD_TITLE]
+Hinweis
+
+[PLUGIN_ANILIST_PICK_PROMPT_FIELD_VALUE]
+Für welchen {{! args.type[0].toUpperCase() + args.type.slice(1) !}} möchtest du gerne mehr details sehen?\n
+Um diese Abfrage abzubrechen, antworte mit `cancel`, die Abfrage wird automatisch in `30` Sekunden abgebrochen.
+## endregion prompt
+
+## region generic
+[PLUGIN_ANILIST_NOTHING_FOUND]
+Konnte auf diese Anfrage hin nichts finden.
+
+[PLUGIN_ANILIST_NOT_SPECIFIED]
+Nicht angegeben.
+
+[PLUGIN_ANILIST_CANCELLED]
+Die Abfrage wurde abgebrochen, ist abgelaufen, oder eine ungültige Auswahl wurde getroffen.
+## endregion generic

@@ -1,0 +1,20 @@
+{
+	"anime": {
+		"de_de": {
+			"desc": "Zeigt details über den angeforderten Anime an.",
+			"usage": "<prefix>anime <Suche>"
+		}
+	},
+	"manga": {
+		"de_de": {
+			"desc": "Zeigt Details über den angeforderten Manga an.",
+			"usage": "<prefix>manga <Suche>"
+		}
+	},
+	"character": {
+		"de_de": {
+			"desc": "Zeigt details über den angeforderten Character an.",
+			"usage":"<prefix>character <Suche>"
+		}
+	}
+}
