@@ -30,6 +30,14 @@
     "typescript": "^2.4.2",
     "yamdbf": "github:zajrik/yamdbf"
   },
+  "buildDependencies": [
+    "typescript",
+    "del",
+    "gulp",
+    "gulp-typescript",
+    "gulp-sourcemaps",
+    "@types/node"
+  ],
   "bugs": {
     "url": "https://github.com/SpaceEEC/yamdbf-anilist-unofficial/issues"
   },
