@@ -1,11 +1,14 @@
 import { RichEmbed as DJSRichEmbed } from 'discord.js';
 
+/**
+ * Extended Discord.js RichEmbed class which provides a `splitToFields` method.
+ */
 export class RichEmbed extends DJSRichEmbed
 {
 	/**
-	 * Splits up a long string into multiple fields for this embed.
+	 * Splits a long string into multiple fields for this embed.
 	 * @param {string} [title='\u200b'] The title of the first field
-	 * @param {string} text The long string to split up
+	 * @param {string} text The long string to split
 	 * @param {boolean} [inline=false] Whether the fields should be inline
 	 * @returns {RichEmbed}
 	 */

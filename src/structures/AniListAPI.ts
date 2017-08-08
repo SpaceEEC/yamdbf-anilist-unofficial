@@ -7,7 +7,7 @@ import { AniType } from '../types/AniType';
 import { ClientCredentials } from '../types/ClientCredentials';
 
 /**
- * AniListAPI class to make api calls to the AniList api.
+ * AniListAPI class to make requests to the AniList API.
  * (Who would have guessed)
  */
 export class AniListAPI
@@ -20,7 +20,7 @@ export class AniListAPI
 	private readonly _plugin: AniListPlugin;
 
 	/**
-	 * Data to authentificate with when requiresting a new token
+	 * Data to authenticate with when requesting a new token
 	 * @private
 	 * @readonly
 	 */
@@ -46,10 +46,10 @@ export class AniListAPI
 	}
 
 	/**
-	 * Searches for the requested type and returns an array of results.
+	 * Searches for the requested type and returns an array of results, or null when nothing was found.
 	 * @param {AniType} type
 	 * @param {string} search
-	 * @returns {Promise<T>}
+	 * @returns {Promise<?T[]>}
 	 */
 	public async search<T>(type: AniType, search: string): Promise<T[]>
 	{
@@ -77,7 +77,7 @@ export class AniListAPI
 	}
 
 	/**
-	 * Retrieves the access token for the AniList API, also updates it when necessary.
+	 * Retrieves the access token for the AniList API, updates it when necessary.
 	 * @returns {Promise<string>}
 	 * @private
 	 */

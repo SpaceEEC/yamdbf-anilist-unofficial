@@ -90,5 +90,5 @@ abstract class Command<T extends Client> extends YAMFBFCommand<T>
 	}
 }
 
-// renamed export because yambf is a bit picky about command class validation
+// renamed export because yamdbf is a bit picky about command class validation
 export { Command as AniCommand };
