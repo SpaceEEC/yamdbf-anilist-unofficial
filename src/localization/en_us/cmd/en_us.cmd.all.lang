@@ -61,7 +61,8 @@ There has been found more than one {{ type }}
 Notice
 
 [PLUGIN_ANILIST_PICK_PROMPT_FIELD_VALUE]
-For which {{ type }} would you like to see additional information?\n
+For which {{ type }} would you like to see additional information?
+Please respond with the number of the entry you would like to see, for example: `3`.\n
 To cancel this prompt respond with `cancel`, this prompt times out after `30` seconds.
 ## endregion prompt
 
