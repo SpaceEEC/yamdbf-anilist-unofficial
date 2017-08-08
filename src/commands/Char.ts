@@ -29,7 +29,7 @@ export class CharacterCommand extends AniCommand<Client>
 		if (!data)
 		{
 			return message.channel.send(res('PLUGIN_ANILIST_NOTHING_FOUND'))
-				.then(() => null);
+				.then(() => undefined);
 		}
 
 		const char: CharData = data.length > 1
@@ -39,7 +39,7 @@ export class CharacterCommand extends AniCommand<Client>
 		if (!char)
 		{
 			return message.channel.send(res('PLUGIN_ANILIST_CANCELLED'))
-				.then(() => null);
+				.then(() => undefined);
 		}
 
 		const embed: RichEmbed = new RichEmbed()
@@ -58,6 +58,6 @@ export class CharacterCommand extends AniCommand<Client>
 			: res('PLUGIN_ANILIST_NOT_SPECIFIED'));
 
 		return message.channel.send({ embed })
-			.then(() => null);
+			.then(() => undefined);
 	}
 }

@@ -28,7 +28,7 @@ export class MangaCommand extends AniCommand<Client>
 		if (!data)
 		{
 			return message.channel.send(res('PLUGIN_ANILIST_NOTHING_FOUND'))
-				.then(() => null);
+				.then(() => undefined);
 		}
 
 		const manga: MangaData = data.length > 1
@@ -38,7 +38,7 @@ export class MangaCommand extends AniCommand<Client>
 		if (!manga)
 		{
 			return message.channel.send(res('PLUGIN_ANILIST_CANCELLED'))
-				.then(() => null);
+				.then(() => undefined);
 		}
 
 		const genres: string = Util.chunkArray(manga.genres, 3).map((chunk: string[]) => chunk.join(', ')).join('\n');
@@ -82,6 +82,6 @@ export class MangaCommand extends AniCommand<Client>
 			true);
 
 		return message.channel.send({ embed })
-			.then(() => null);
+			.then(() => undefined);
 	}
 }
