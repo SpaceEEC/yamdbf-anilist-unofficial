@@ -10,4 +10,5 @@ export { Util } from './Util';
 export { AniCredentials };
 export { AniList };
 export { AniListPlugin };
+export { RichEmbed } from './structures/RichEmbed';
 export default AniListPlugin.build;
