@@ -1,6 +1,6 @@
 {
   "name": "yamdbf-anilist-unofficial",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "YAMDBF plugin which allows users to easily retrieve details about anime, manga and their characters.",
   "main": "bin/index",
   "typings": "bin/index.d.ts",
@@ -19,14 +19,14 @@
     "postinstall-build": "^5.0.1"
   },
   "devDependencies": {
-    "@types/node": "^8.0.14",
+    "@types/node": "^8.0.19",
     "@types/snekfetch": "^3.1.0",
     "del": "^3.0.0",
     "discord.js": "github:hydrabolt/discord.js#11.1-dev",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-typescript": "^3.2.1",
-    "tslint": "^5.5.0",
+    "tslint": "^5.6.0",
     "typescript": "^2.4.2",
     "yamdbf": "github:zajrik/yamdbf"
   },
