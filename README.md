@@ -1,12 +1,12 @@
 # yamdbf-anilist-unofficial
-YAMDBF plugin which allows users to easily retrieve details about anime, manga and their characters from [Anilist](https://anilist.co).
+A YAMDBF plugin which allows users to easily retrieve details about anime, manga and their characters from [Anilist](https://anilist.co).
 
 # Installing
 - Install the package via `npm` (requires `git` to be installed):
 ```
 npm i -S SpaceEEC/yamdbf-anilist-unofficial
 ```
-> Note: YAMDBF 3.0.0 is required to use this plugin, since plugin support was/will be added with that version.
+> Note: YAMDBF 3.0.0 is required to use this plugin since plugin support was/will be added with that version.
 
 - Add it to your client's plugins, here an example:
 ```ts
@@ -35,4 +35,4 @@ For example:
 
 `!anime Nisemonogatari`
 
-Will display an embed about Nisemonogatari.
+Will display an embed filled with information about Nisemonogatari.
