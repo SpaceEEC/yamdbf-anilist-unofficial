@@ -2,6 +2,7 @@ import { Collection, RichEmbed, Snowflake } from 'discord.js';
 import { Client, Command as YAMFBFCommand, Message, ResourceLoader, Util } from 'yamdbf';
 
 import { AniListPlugin } from '../AniListPlugin';
+import { LocalizationStrings as S } from '../localization/LocalizationStrings';
 import { AnimeData, CharData, MangaData } from '../types/AniData';
 
 /**
@@ -64,7 +65,7 @@ abstract class Command<T extends Client> extends YAMFBFCommand<T>
 			.setColor(message.member.displayColor)
 			.setTitle(res('PLUGIN_ANILIST_PICK_PROMPT_TITLE', { type: data[0].series_type || 'char' }))
 			.setDescription(mappedNames.join('\n').slice(0, 2000))
-			.addField(res('PLUGIN_ANILIST_PICK_PROMPT_FIELD_TITLE'),
+			.addField(res(S.PLUGIN_ANILIST_PICK_PROMPT_FIELD_TITLE),
 			res('PLUGIN_ANILIST_PICK_PROMPT_FIELD_VALUE',
 				{
 					type: data[0].series_type || 'char',

@@ -1,5 +1,6 @@
 import { Client, CommandDecorators, Message, Middleware, ResourceLoader } from 'yamdbf';
 
+import { LocalizationStrings as S } from '../localization/LocalizationStrings';
 import { AniCommand } from '../structures/AniCommand';
 import { RichEmbed } from '../structures/RichEmbed';
 import { CharData } from '../types/AniData';
@@ -28,7 +29,7 @@ export class CharacterCommand extends AniCommand<Client>
 
 		if (!data)
 		{
-			return message.channel.send(res('PLUGIN_ANILIST_NOTHING_FOUND'))
+			return message.channel.send(res(S.PLUGIN_ANILIST_NOTHING_FOUND))
 				.then(() => undefined);
 		}
 
@@ -38,7 +39,7 @@ export class CharacterCommand extends AniCommand<Client>
 
 		if (!char)
 		{
-			return message.channel.send(res('PLUGIN_ANILIST_CANCELLED'))
+			return message.channel.send(res(S.PLUGIN_ANILIST_CANCELLED))
 				.then(() => undefined);
 		}
 
@@ -53,9 +54,9 @@ export class CharacterCommand extends AniCommand<Client>
 			embed.addField('Aliases:', char.name_alt);
 		}
 
-		embed.splitToFields(res('PLUGIN_ANILIST_DESCRIPTION'), char.info
+		embed.splitToFields(res(S.PLUGIN_ANILIST_DESCRIPTION), char.info
 			? Util.replaceMap(char.info, Util.replaceChars)
-			: res('PLUGIN_ANILIST_NOT_SPECIFIED'));
+			: res(S.PLUGIN_ANILIST_NOT_SPECIFIED));
 
 		return message.channel.send({ embed })
 			.then(() => undefined);

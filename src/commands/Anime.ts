@@ -1,5 +1,6 @@
 import { Client, CommandDecorators, Message, Middleware, ResourceLoader } from 'yamdbf';
 
+import { LocalizationStrings as S } from '../localization/LocalizationStrings';
 import { AniCommand } from '../structures/AniCommand';
 import { RichEmbed } from '../structures/RichEmbed';
 import { AnimeData } from '../types/AniData';
@@ -27,7 +28,7 @@ export class AnimeCommand extends AniCommand<Client>
 
 		if (!data)
 		{
-			return message.channel.send(res('PLUGIN_ANILIST_NOTHING_FOUND'))
+			return message.channel.send(res(S.PLUGIN_ANILIST_NOTHING_FOUND))
 				.then(() => undefined);
 		}
 
@@ -37,7 +38,7 @@ export class AnimeCommand extends AniCommand<Client>
 
 		if (!anime)
 		{
-			return message.channel.send(res('PLUGIN_ANILIST_CANCELLED'))
+			return message.channel.send(res(S.PLUGIN_ANILIST_CANCELLED))
 				.then(() => undefined);
 		}
 
@@ -51,9 +52,9 @@ export class AnimeCommand extends AniCommand<Client>
 			anime.title_romaji === anime.title_english
 				? anime.title_english
 				: `${anime.title_romaji}\n\n${anime.title_english}`)
-			.addField(res('PLUGIN_ANILIST_GENRES_TITLE'), genres || res('PLUGIN_ANILIST_NOT_SPECIFIED'), true)
-			.addField(res('PLUGIN_ANILIST_RATING_TYPE_TITLE'), `${anime.average_score} | ${anime.type}`, true)
-			.addField(res('PLUGIN_ANILIST_EPISODES_TITLE'), anime.total_episodes, true);
+			.addField(res(S.PLUGIN_ANILIST_GENRES_TITLE), genres || res(S.PLUGIN_ANILIST_NOT_SPECIFIED), true)
+			.addField(res(S.PLUGIN_ANILIST_RATING_TYPE_TITLE), `${anime.average_score} | ${anime.type}`, true)
+			.addField(res(S.PLUGIN_ANILIST_EPISODES_TITLE), anime.total_episodes, true);
 
 		if (anime.start_date_fuzzy)
 		{
@@ -61,28 +62,28 @@ export class AnimeCommand extends AniCommand<Client>
 			let value: string = Util.formatFuzzy(anime.start_date_fuzzy);
 			if (anime.airing_status === 'finished airing')
 			{
-				title = res('PLUGIN_ANILIST_PERIOD_TITLE');
-				value += ` - ${Util.formatFuzzy(anime.end_date_fuzzy) || res('PLUGIN_ANILIST_NOT_SPECIFIED')}`;
+				title = res(S.PLUGIN_ANILIST_PERIOD_TITLE);
+				value += ` - ${Util.formatFuzzy(anime.end_date_fuzzy) || res(S.PLUGIN_ANILIST_NOT_SPECIFIED)}`;
 			}
 			else
 			{
-				title = res('PLUGIN_ANILIST_START_TITLE');
+				title = res(S.PLUGIN_ANILIST_START_TITLE);
 			}
 
 			embed.addField(title, value, true);
 		}
 
-		embed.splitToFields(res('PLUGIN_ANILIST_DESCRIPTION'), anime.description
+		embed.splitToFields(res(S.PLUGIN_ANILIST_DESCRIPTION), anime.description
 			? Util.replaceMap(anime.description, Util.replaceChars)
-			: res('PLUGIN_ANILIST_NOT_SPECIFIED'));
+			: res(S.PLUGIN_ANILIST_NOT_SPECIFIED));
 
-		embed.addField(res('PLUGIN_ANILIST_AIRING_STATUS_TITLE'),
+		embed.addField(res(S.PLUGIN_ANILIST_AIRING_STATUS_TITLE),
 			anime.airing_status ?
 				res('PLUGIN_ANILIST_STATUS_VALUE', { status: anime.airing_status })
-				: res('PLUGIN_ANILIST_NOT_SPECIFIED'),
+				: res(S.PLUGIN_ANILIST_NOT_SPECIFIED),
 			true)
-			.addField(res('PLUGIN_ANILIST_ORIGIN'),
-			anime.source || res('PLUGIN_ANILIST_NOT_SPECIFIED'), true);
+			.addField(res(S.PLUGIN_ANILIST_ORIGIN),
+			anime.source || res(S.PLUGIN_ANILIST_NOT_SPECIFIED), true);
 
 		return message.channel.send({ embed })
 			.then(() => undefined);
