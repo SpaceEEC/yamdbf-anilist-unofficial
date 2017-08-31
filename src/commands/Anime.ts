@@ -79,7 +79,7 @@ export class AnimeCommand extends AniCommand<Client>
 
 		embed.addField(res(S.PLUGIN_ANILIST_AIRING_STATUS_TITLE),
 			anime.airing_status ?
-				res('PLUGIN_ANILIST_STATUS_VALUE', { status: anime.airing_status })
+				res(S.PLUGIN_ANILIST_STATUS_VALUE, { status: anime.airing_status })
 				: res(S.PLUGIN_ANILIST_NOT_SPECIFIED),
 			true)
 			.addField(res(S.PLUGIN_ANILIST_ORIGIN),

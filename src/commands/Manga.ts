@@ -78,7 +78,7 @@ export class MangaCommand extends AniCommand<Client>
 			: res(S.PLUGIN_ANILIST_NOT_SPECIFIED))
 			.addField(res(S.PLUGIN_ANILIST_PUBLISHING_STATUS),
 			manga.publishing_status
-				? res('PLUGIN_ANILIST_STATUS_VALUE', { status: manga.publishing_status })
+				? res(S.PLUGIN_ANILIST_STATUS_VALUE, { status: manga.publishing_status })
 				: res(S.PLUGIN_ANILIST_NOT_SPECIFIED),
 			true);
 

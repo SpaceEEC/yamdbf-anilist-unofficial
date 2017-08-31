@@ -63,10 +63,10 @@ abstract class Command<T extends Client> extends YAMFBFCommand<T>
 
 		const embed: RichEmbed = new RichEmbed()
 			.setColor(message.member.displayColor)
-			.setTitle(res('PLUGIN_ANILIST_PICK_PROMPT_TITLE', { type: data[0].series_type || 'char' }))
+			.setTitle(res(S.PLUGIN_ANILIST_PICK_PROMPT_TITLE, { type: data[0].series_type || 'char' }))
 			.setDescription(mappedNames.join('\n').slice(0, 2000))
 			.addField(res(S.PLUGIN_ANILIST_PICK_PROMPT_FIELD_TITLE),
-			res('PLUGIN_ANILIST_PICK_PROMPT_FIELD_VALUE',
+			res(S.PLUGIN_ANILIST_PICK_PROMPT_FIELD_VALUE,
 				{
 					type: data[0].series_type || 'char',
 				},
