@@ -83,7 +83,7 @@ export class AniListAPI
 	 */
 	private async _retrieveToken(): Promise<string>
 	{
-		let settings: AniSettings = await this._plugin.client.storage.get('aniListSettings');
+		let settings: AniSettings = await this._plugin.provider.get('aniListSettings');
 		if (!settings || settings.expires <= Date.now())
 		{
 			Logger.instance().debug('AniList', 'Refreshing token...');
@@ -96,7 +96,7 @@ export class AniListAPI
 				token: body.access_token,
 			};
 
-			await this._plugin.client.storage.set('aniListSettings', settings);
+			await this._plugin.provider.set('aniListSettings', settings);
 		}
 
 		return settings.token;

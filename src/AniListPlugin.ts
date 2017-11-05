@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { Client, IPlugin, Lang, Plugin, PluginConstructor } from 'yamdbf';
+import { Client, IPlugin, Lang, Plugin, PluginConstructor, SharedProviderStorage } from 'yamdbf';
 
 import { AnimeCommand } from './commands/Anime';
 import { CharacterCommand } from './commands/Char';
@@ -9,7 +9,7 @@ import { AniCredentials } from './types/';
 
 /**
  * AniListPlugin that allows users to get details about their
- * requested anime, manga or char
+ * requested anime, manga or characters.
  */
 export class AniListPlugin extends Plugin implements IPlugin
 {
@@ -46,6 +46,10 @@ export class AniListPlugin extends Plugin implements IPlugin
 	 * @readonly
 	 */
 	public readonly client: Client;
+	/**
+	 * Reference to the shared provider storage
+	 */
+	public provider: SharedProviderStorage;
 
 	/**
 	 * Instantiates the AniListPlugin class
@@ -63,10 +67,12 @@ export class AniListPlugin extends Plugin implements IPlugin
 
 	/**
 	 * Initializes the AniListPlugin
-	 * @returns {Promise<void>}<
+	 * @returns {Promise<void>}
 	 */
-	public async init(): Promise<void>
+	public async init(provider: SharedProviderStorage): Promise<void>
 	{
+		this.provider = provider;
+
 		Lang.loadCommandLocalizationsFrom(join(__dirname, 'localization'));
 		Lang.loadLocalizationsFrom(join(__dirname, 'localization'));
 
