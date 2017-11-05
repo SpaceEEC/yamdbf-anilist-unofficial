@@ -6,7 +6,7 @@ import { LocalizationStrings as S } from '../localization/LocalizationStrings';
 import { AnimeData, CharData, MangaData } from '../types/AniData';
 
 /**
- * Abstract command class to provide functionalities for all commands without having tons of code duplication.
+ * Abstract command class to provide functionalities for all commands without having code duplication.
  * @abstract
  */
 abstract class Command<T extends Client> extends YAMFBFCommand<T>
