@@ -51,7 +51,7 @@ export class CharacterCommand extends AniCommand<Client>
 
 		if (char.name_alt)
 		{
-			embed.addField('Aliases:', char.name_alt);
+			embed.addField(res(S.PLUGIN_ANILIST_ALIASES_TITLE), char.name_alt);
 		}
 
 		embed.splitToFields(res(S.PLUGIN_ANILIST_DESCRIPTION), char.info

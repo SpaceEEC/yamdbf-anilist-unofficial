@@ -62,9 +62,9 @@ Es wurde mehr als ein {{ type }} gefunden
 Hinweis
 
 [PLUGIN_ANILIST_PICK_PROMPT_FIELD_VALUE]
-Für welchen {{! args.type[0].toUpperCase() + args.type.slice(1) !}} möchtest du gerne mehr details sehen?
+Für welchen {{ type }} möchtest du gerne mehr details sehen?
 Antworte mit der Zahl des Eintrages den du zu sehen wünscht, zum Beispiel: `3`.\n
-Um diese Abfrage abzubrechen, antworte mit `cancel`, die Abfrage wird automatisch in `30` Sekunden abgebrochen.
+Um diese Abfrage abzubrechen, antworte mit `cancel`, die Abfrage wird in `30` Sekunden automatisch abgebrochen.
 ## endregion prompt
 
 ## region generic
