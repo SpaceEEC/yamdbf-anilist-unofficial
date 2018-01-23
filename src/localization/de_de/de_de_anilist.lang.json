@@ -1,7 +1,7 @@
 {
 	"anime": {
 		"de_de": {
-			"desc": "Zeigt details über den angeforderten Anime an.",
+			"desc": "Zeigt Details über den angeforderten Anime an.",
 			"usage": "<prefix>anime <Suche>"
 		}
 	},
@@ -13,7 +13,7 @@
 	},
 	"character": {
 		"de_de": {
-			"desc": "Zeigt details über den angeforderten Character an.",
+			"desc": "Zeigt Details über den angeforderten Character an.",
 			"usage":"<prefix>character <Suche>"
 		}
 	}

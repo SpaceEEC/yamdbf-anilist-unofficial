@@ -1,4 +1,5 @@
 import { join } from 'path';
+// tslint:disable-next-line:no-implicit-dependencies
 import { Client, IPlugin, Lang, Plugin, PluginConstructor, SharedProviderStorage } from 'yamdbf';
 
 import { AnimeCommand } from './commands/Anime';
@@ -73,8 +74,10 @@ export class AniListPlugin extends Plugin implements IPlugin
 	{
 		this.provider = provider;
 
-		Lang.loadCommandLocalizationsFrom(join(__dirname, 'localization'));
-		Lang.loadLocalizationsFrom(join(__dirname, 'localization'));
+		const dir: string = join(__dirname, 'localization');
+		Lang.loadCommandLocalizationsFrom(dir);
+		Lang.loadLocalizationsFrom(dir);
+		Lang.loadGroupLocalizationsFrom(dir);
 
 		this.client.commands.registerExternal(new AnimeCommand(this));
 		this.client.commands.registerExternal(new CharacterCommand(this));
