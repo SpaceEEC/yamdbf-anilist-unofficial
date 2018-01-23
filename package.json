@@ -1,6 +1,6 @@
 {
   "name": "yamdbf-anilist-unofficial",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "YAMDBF plugin which allows users to easily retrieve details about anime, manga and their characters.",
   "main": "bin/index",
   "typings": "bin/index.d.ts",
