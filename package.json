@@ -28,7 +28,7 @@
     "gulp-typescript": "^3.2.3",
     "tslint": "^5.9.1",
     "typescript": "^2.6.2",
-    "yamdbf": "github:zajrik/yamdbf"
+    "yamdbf": "github:zajrik/yamdbf#indev"
   },
   "buildDependencies": [
     "typescript",
