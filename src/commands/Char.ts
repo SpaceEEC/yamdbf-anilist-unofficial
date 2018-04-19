@@ -34,7 +34,7 @@ export class CharacterCommand extends AniCommand<Client>
 		}
 
 		const char: CharData = data.length > 1
-			? await this.pick(null, message, data)
+			? await this.pick(res, message, data)
 			: data[0];
 
 		if (!char)
