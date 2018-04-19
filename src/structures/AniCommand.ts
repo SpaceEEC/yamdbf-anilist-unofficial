@@ -1,6 +1,6 @@
 import { Collection, RichEmbed, Snowflake } from 'discord.js';
-import { Client, Command as YAMFBFCommand, Message, ResourceLoader, Util } from 'yamdbf';
-
+import { Client, Command as YAMFBFCommand, Message, Util } from 'yamdbf';
+import { BetterResourceProxy } from '../localization/LocalizationStrings';
 import { AniListPlugin } from '../AniListPlugin';
 import { LocalizationStrings as S } from '../localization/LocalizationStrings';
 import { AnimeData, CharData, MangaData } from '../types/AniData';
@@ -38,7 +38,7 @@ abstract class Command<T extends Client> extends YAMFBFCommand<T>
 	 * @returns {Promise<AnimeData | CharData | MangaData>}
 	 * @protected
 	 */
-	protected async pick<U extends (AnimeData | CharData | MangaData)>(res: ResourceLoader, message: Message, data: U[])
+	protected async pick<U extends (AnimeData | CharData | MangaData)>(res: BetterResourceProxy, message: Message, data: U[])
 		: Promise<U>
 	{
 		const mappedNames: string[] = [];
@@ -63,10 +63,10 @@ abstract class Command<T extends Client> extends YAMFBFCommand<T>
 
 		const embed: RichEmbed = new RichEmbed()
 			.setColor(message.member.displayColor)
-			.setTitle(res(S.PLUGIN_ANILIST_PICK_PROMPT_TITLE, { type: data[0].series_type || 'char' }))
+			.setTitle(res.PLUGIN_ANILIST_PICK_PROMPT_TITLE({ type: data[0].series_type || 'char' }))
 			.setDescription(mappedNames.join('\n').slice(0, 2000))
-			.addField(res(S.PLUGIN_ANILIST_PICK_PROMPT_FIELD_TITLE),
-			res(S.PLUGIN_ANILIST_PICK_PROMPT_FIELD_VALUE,
+			.addField(res.PLUGIN_ANILIST_PICK_PROMPT_FIELD_TITLE(),
+			res.PLUGIN_ANILIST_PICK_PROMPT_FIELD_VALUE(
 				{
 					type: data[0].series_type || 'char',
 				},
