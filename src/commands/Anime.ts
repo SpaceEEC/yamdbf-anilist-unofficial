@@ -33,7 +33,7 @@ export class AnimeCommand extends AniCommand<Client>
 		}
 
 		const anime: AnimeData = data.length > 1
-			? await this.pick(null, message, data)
+			? await this.pick(res, message, data)
 			: data[0];
 
 		if (!anime)
