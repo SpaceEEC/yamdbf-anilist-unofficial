@@ -1,6 +1,6 @@
-import { Client, CommandDecorators, Message, Middleware, ResourceLoader } from 'yamdbf';
+import { Client, CommandDecorators, Message, Middleware } from 'yamdbf';
 
-import { LocalizationStrings as S } from '../localization/LocalizationStrings';
+import { BetterResourceProxy } from '../localization/LocalizationStrings';
 import { AniCommand } from '../structures/AniCommand';
 import { RichEmbed } from '../structures/RichEmbed';
 import { MangaData } from '../types/AniData';
@@ -22,13 +22,13 @@ export class MangaCommand extends AniCommand<Client>
 	// tslint:disable-next-line:no-shadowed-variable
 	@using((message: Message, args: string[]) => [message, [args.join(' ')]])
 	@localizable
-	public async action(message: Message, [res, search]: [ResourceLoader, string]): Promise<void>
+	public async action(message: Message, [res, search]: [BetterResourceProxy, string]): Promise<void>
 	{
 		const data: MangaData[] = await this.plugin.api.search<MangaData>(AniType.MANGA, search);
 
 		if (!data)
 		{
-			return message.channel.send(res(S.PLUGIN_ANILIST_NOTHING_FOUND))
+			return message.channel.send(res.PLUGIN_ANILIST_NOTHING_FOUND())
 				.then(() => undefined);
 		}
 
@@ -38,7 +38,7 @@ export class MangaCommand extends AniCommand<Client>
 
 		if (!manga)
 		{
-			return message.channel.send(res(S.PLUGIN_ANILIST_CANCELLED))
+			return message.channel.send(res.PLUGIN_ANILIST_CANCELLED())
 				.then(() => undefined);
 		}
 
@@ -52,9 +52,9 @@ export class MangaCommand extends AniCommand<Client>
 			manga.title_romaji === manga.title_english
 				? manga.title_english
 				: `${manga.title_romaji}\n${manga.title_english}`)
-			.addField(res(S.PLUGIN_ANILIST_GENRES_TITLE), genres || res(S.PLUGIN_ANILIST_NOT_SPECIFIED), true)
-			.addField(res(S.PLUGIN_ANILIST_RATING_TYPE_TITLE), `${manga.average_score} | ${manga.type}`, true)
-			.addField(res(S.PLUGIN_ANILIST_CHAPTERS_VOLUMES), `${manga.total_chapters} | ${manga.total_volumes}`, true);
+			.addField(res.PLUGIN_ANILIST_GENRES_TITLE(), genres || res.PLUGIN_ANILIST_NOT_SPECIFIED(), true)
+			.addField(res.PLUGIN_ANILIST_RATING_TYPE_TITLE(), `${manga.average_score} | ${manga.type}`, true)
+			.addField(res.PLUGIN_ANILIST_CHAPTERS_VOLUMES(), `${manga.total_chapters} | ${manga.total_volumes}`, true);
 
 		if (manga.start_date_fuzzy)
 		{
@@ -62,24 +62,24 @@ export class MangaCommand extends AniCommand<Client>
 			let value: string = Util.formatFuzzy(manga.start_date_fuzzy);
 			if (manga.publishing_status === 'finished publishing')
 			{
-				title = res(S.PLUGIN_ANILIST_PERIOD_TITLE);
-				value += ` - ${Util.formatFuzzy(manga.end_date_fuzzy) || res(S.PLUGIN_ANILIST_NOT_SPECIFIED)}`;
+				title = res.PLUGIN_ANILIST_PERIOD_TITLE();
+				value += ` - ${Util.formatFuzzy(manga.end_date_fuzzy) || res.PLUGIN_ANILIST_NOT_SPECIFIED()}`;
 			}
 			else
 			{
-				title = res(S.PLUGIN_ANILIST_START_TITLE);
+				title = res.PLUGIN_ANILIST_START_TITLE();
 			}
 
 			embed.addField(title, value, true);
 		}
 
-		embed.splitToFields(res(S.PLUGIN_ANILIST_DESCRIPTION), manga.description
+		embed.splitToFields(res.PLUGIN_ANILIST_DESCRIPTION(), manga.description
 			? Util.replaceMap(manga.description, Util.replaceChars)
-			: res(S.PLUGIN_ANILIST_NOT_SPECIFIED))
-			.addField(res(S.PLUGIN_ANILIST_PUBLISHING_STATUS),
+			: res.PLUGIN_ANILIST_NOT_SPECIFIED())
+			.addField(res.PLUGIN_ANILIST_PUBLISHING_STATUS(),
 			manga.publishing_status
-				? res(S.PLUGIN_ANILIST_STATUS_VALUE, { status: manga.publishing_status })
-				: res(S.PLUGIN_ANILIST_NOT_SPECIFIED),
+				? res.PLUGIN_ANILIST_STATUS_VALUE({ status: manga.publishing_status })
+				: res.PLUGIN_ANILIST_NOT_SPECIFIED(),
 			true);
 
 		return message.channel.send({ embed })

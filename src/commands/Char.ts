@@ -1,6 +1,6 @@
-import { Client, CommandDecorators, Message, Middleware, ResourceLoader } from 'yamdbf';
+import { Client, CommandDecorators, Message, Middleware } from 'yamdbf';
 
-import { LocalizationStrings as S } from '../localization/LocalizationStrings';
+import { BetterResourceProxy } from '../localization/LocalizationStrings';
 import { AniCommand } from '../structures/AniCommand';
 import { RichEmbed } from '../structures/RichEmbed';
 import { CharData } from '../types/AniData';
@@ -23,13 +23,13 @@ export class CharacterCommand extends AniCommand<Client>
 	// tslint:disable-next-line:no-shadowed-variable
 	@using((message: Message, args: string[]) => [message, [args.join(' ')]])
 	@localizable
-	public async action(message: Message, [res, search]: [ResourceLoader, string]): Promise<void>
+	public async action(message: Message, [res, search]: [BetterResourceProxy, string]): Promise<void>
 	{
 		const data: CharData[] = await this.plugin.api.search<CharData>(AniType.CHARACTER, search);
 
 		if (!data)
 		{
-			return message.channel.send(res(S.PLUGIN_ANILIST_NOTHING_FOUND))
+			return message.channel.send(res.PLUGIN_ANILIST_NOTHING_FOUND())
 				.then(() => undefined);
 		}
 
@@ -39,7 +39,7 @@ export class CharacterCommand extends AniCommand<Client>
 
 		if (!char)
 		{
-			return message.channel.send(res(S.PLUGIN_ANILIST_CANCELLED))
+			return message.channel.send(res.PLUGIN_ANILIST_CANCELLED())
 				.then(() => undefined);
 		}
 
@@ -51,12 +51,12 @@ export class CharacterCommand extends AniCommand<Client>
 
 		if (char.name_alt)
 		{
-			embed.addField(res(S.PLUGIN_ANILIST_ALIASES_TITLE), char.name_alt);
+			embed.addField(res.PLUGIN_ANILIST_ALIASES_TITLE(), char.name_alt);
 		}
 
-		embed.splitToFields(res(S.PLUGIN_ANILIST_DESCRIPTION), char.info
+		embed.splitToFields(res.PLUGIN_ANILIST_DESCRIPTION(), char.info
 			? Util.replaceMap(char.info, Util.replaceChars)
-			: res(S.PLUGIN_ANILIST_NOT_SPECIFIED));
+			: res.PLUGIN_ANILIST_NOT_SPECIFIED());
 
 		return message.channel.send({ embed })
 			.then(() => undefined);
