@@ -19,3 +19,7 @@ export enum LocalizationStrings
 	PLUGIN_ANILIST_NOT_SPECIFIED = 'PLUGIN_ANILIST_NOT_SPECIFIED',
 	PLUGIN_ANILIST_CANCELLED = 'PLUGIN_ANILIST_CANCELLED',
 }
+
+import { ResourceProxy } from 'yamdbf';
+
+export type BetterResourceProxy = ResourceProxy<{ [S in LocalizationStrings]: S }>;
