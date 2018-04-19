@@ -33,7 +33,7 @@ export class MangaCommand extends AniCommand<Client>
 		}
 
 		const manga: MangaData = data.length > 1
-			? await this.pick(null, message, data)
+			? await this.pick(res, message, data)
 			: data[0];
 
 		if (!manga)
